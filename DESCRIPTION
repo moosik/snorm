@@ -1,8 +1,11 @@
 Package: snorm
-Title: What the Package Does (one line, title case)
+Title: Supporting function for supervised exploration of data structure
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Authors@R: person("Vitalina", "Komashko", email = "vitalina@gmail.com", role = c("aut", "cre"))
+Description: The package was created to gather together functions used frequently to explore
+	     structure in genomic data and aid data normalization. Functions address realtionship
+	     between the variables in the metadata describing the data (subject characteristics), 
+	     their influence on the data as explored by correlating with the data eigenvectors. 
 Depends: R (>= 3.2.0)
-License: What license is it under?
+License: GPL-3
 LazyData: true
