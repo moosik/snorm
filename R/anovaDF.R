@@ -1,11 +1,13 @@
-#' @title Calculate p value for a linear regression
+#' ANOVA overall P value for a linear model
 #' 
-#' @description The function calculates P value for F test
-#'  statistic the intercept in a model is not 
-#'  zero. 
+#' The function calculates ANOVA overall P value for a linear
+#' model where y is a numeric vector (for example, an eigenvector
+#' calculated in an SVD) and x is a dependent variable from
+#' the metadata. The function loops over the columns of the
+#' metadata
 #'  
 #'  @param vec vector of the response variable
-#'  @param df data frame of the dependent variables
+#'  @param df metadata
 #'  
 #'  @return a vector of P values for each model fitted where
 #'   input vector is the response variable and dependent 

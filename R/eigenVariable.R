@@ -1,7 +1,7 @@
-#' @title Association of eigen genes with variables
+#' @title Association of eigen vectors with variables
 #' 
 #' @description This function calculates P values for association of any number
-#'  of eigen vectors with any number of technical and biological variables. 
+#'  of eigen vectors with metadata variable. 
 #'  Method: anova(lm(eigengene ~ variable))$"Pr(>F)"[1]
 #'
 #' @author Vitalina Komashko \email{vitalina@@gmail.com}

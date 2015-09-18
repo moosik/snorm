@@ -9,3 +9,4 @@ Description: The package was created to gather together functions used frequentl
 Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
+Imports: ggplot2, reshape2
