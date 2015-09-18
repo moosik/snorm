@@ -4,16 +4,13 @@
 #'  of eigen vectors with metadata variable. 
 #'  Method: anova(lm(eigengene ~ variable))$"Pr(>F)"[1]
 #'
-#' @author Vitalina Komashko \email{vitalina@@gmail.com}
 #' 
-#' @import ggplot2
-#' @import reshape2
+#' @param pcs a matrix with eigen vectors, i.e V matrix of an SVD
+#' @param tech.vars metadata df
 #' 
-#' @param pcs a matrix with eigen vectors, i.e u$v[, 1:n]
-#' @param tech.vars a data frame with technical and biological variables
-#' 
-#' @return list, where first element is the matrix with the P values, and
-#'  the second element is a ggplot object showing P values
+#' @return list with two elements. The first element is the matrix with the P values, and
+#'  the second element is a ggplot object for the tile plot of the P values between
+#' the variable, where color reflect the significance (alpha 0.05)
 #'  
 #' @examples
 #' u <- matrix(runif(120), ncol = 3)
@@ -23,7 +20,7 @@
 #'                        height = sample(60:72, 40, replace = TRUE))
 #' res <- eigenVariable(u, var.test)
 #' print(res$result)
-#' plot(res$p)
+#' plot(res$plot)
 #' 
 #' @seealso code{\link{anovaDF}}
 #' @export
