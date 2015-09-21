@@ -9,17 +9,19 @@ eigenVariable(pcs, tech.vars)
 \arguments{
 \item{pcs}{a matrix with eigen vectors, i.e V matrix of an SVD}
 
-\item{tech.vars}{metadata df}
+\item{tech.vars}{data frame with the metadata variables}
 }
 \value{
-list with two elements. The first element is the matrix with the P values, and
- the second element is a ggplot object for the tile plot of the P values between
-the variable, where color reflect the significance (alpha 0.05)
+\describe{
+   \item{result}{Matrix with the P values where columns are the eigen vectors and
+   the rows are the variables from the metadata}
+   \item{plot}{ggplot object for a tile plot reflecting significant associations}
+ }
 }
 \description{
 This function calculates P values for association of any number
- of eigen vectors with metadata variable.
- Method: anova(lm(eigengene ~ variable))$"Pr(>F)"[1]
+ of eigen vectors with the metadata variables.
+ Method: anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]
 }
 \examples{
 u <- matrix(runif(120), ncol = 3)
@@ -30,8 +32,5 @@ var.test <- data.frame(batch = sample(c("a", "b"), 40, replace = TRUE),
 res <- eigenVariable(u, var.test)
 print(res$result)
 plot(res$plot)
-}
-\seealso{
-code{\link{anovaDF}}
 }
 

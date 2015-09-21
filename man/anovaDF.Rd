@@ -7,9 +7,9 @@
 anovaDF(vec, df)
 }
 \arguments{
-\item{vec}{vector of the response variable}
+\item{vec}{vector of the response variable (an eigen vector)}
 
-\item{df}{metadata}
+\item{df}{data frame with the metadata}
 }
 \value{
 a vector of P values for each model fitted where
@@ -19,12 +19,12 @@ a vector of P values for each model fitted where
 }
 \description{
 The function calculates ANOVA overall P value for a linear
-model where y is a numeric vector (for example, an eigenvector
-calculated by an SVD) and x is a dependent variable from
+model where y is a numeric vector (an eigen vector
+calculated in an SVD) and x is a dependent variable from
 the metadata. The function loops over the columns of the
 metadata
 }
 \seealso{
-code{\link{eigenVariable}}
+\code{\link{eigenVariable}}
 }
 
