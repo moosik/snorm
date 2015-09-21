@@ -27,7 +27,7 @@
 #'
 #' @export
 #'
-#' @seealso chisq.test, kruskal.test, cor.test
+#' @seealso \code{\link{testDecisionTree}}
 
 
 
