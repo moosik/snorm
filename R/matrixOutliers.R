@@ -1,18 +1,20 @@
-#' Plots data outliers based on first eigenvector
+#' Plots data outliers based on first eigen vector
 #'
-#' The function takes the eigenvector provided, orders it's values,
+#' The function takes the eigen vector provided, orders it's values,
 #' takes the minimum and the maximum, finds the corresponding columns
 #' in the provided data matrix and creates a scatter plot of these
-#' columns. Adds a line with intercept 0 and the slope 1.
+#' vectors. Adds a line with intercept 0 and the slope 1. This kind of
+#' plot is generally produced for the first eigen vector.
 #'
-#' @param data dataset for which an SVD was computed
-#' @param pc vector corresponding to an eigenvector of the SVD
+#' @param data a matrix for which an SVD was computed
+#' @param pc vector corresponding to an eigen vector of the SVD
 #'
 #' @return a ggplot object
 #'
-#' @seealso fs
+#' @seealso \code{\link{fs}}
 #'
 #' @export
+
 
 
 matrixOutliers <- function(data, pc){

@@ -2,25 +2,26 @@
 % Please edit documentation in R/matrixOutliers.R
 \name{matrixOutliers}
 \alias{matrixOutliers}
-\title{Plots data outliers based on first eigenvector}
+\title{Plots data outliers based on first eigen vector}
 \usage{
 matrixOutliers(data, pc)
 }
 \arguments{
-\item{data}{dataset for which an SVD was computed}
+\item{data}{a matrix for which an SVD was computed}
 
-\item{pc}{vector corresponding to an eigenvector of the SVD}
+\item{pc}{vector corresponding to an eigen vector of the SVD}
 }
 \value{
 a ggplot object
 }
 \description{
-The function takes the eigenvector provided, orders it's values,
+The function takes the eigen vector provided, orders it's values,
 takes the minimum and the maximum, finds the corresponding columns
 in the provided data matrix and creates a scatter plot of these
-columns. Adds a line with intercept 0 and the slope 1.
+vectors. Adds a line with intercept 0 and the slope 1. This kind of
+plot is generally produced for the first eigen vector.
 }
 \seealso{
-fs
+\code{\link{fs}}
 }
 
