@@ -2,7 +2,7 @@
 % Please edit documentation in R/carefulChisq.R
 \name{carefulChisq}
 \alias{carefulChisq}
-\title{Calculate Chi-square test between two variable, catch errors and warning}
+\title{Calculate Chi-square test between two variables, catch errors and warnings}
 \usage{
 carefulChisq(x1, x2, df, sim.p.value = TRUE)
 }
@@ -13,18 +13,19 @@ carefulChisq(x1, x2, df, sim.p.value = TRUE)
 
 \item{df}{data frame}
 
-\item{sim.p.value}{if it TRUE (default) p value is computed for a Monte carlo test}
+\item{sim.p.value}{if it TRUE (default) P value is computed for a Monte carlo test}
 }
 \value{
 \describe{
-   \item{"p.value"}{"P value or the error/warning message"}
-   \item{"statistic"}{"Test statistic or the error/warning message"}
-   \item{"test.type"}{"String indicating the test type: chi-square test, monte carlo simulation"}
+   \item{p.value}{P value or the error/warning message}
+   \item{statistic}{Test statistic or the error/warning message}
+   \item{test.type}{String indicating the test type: chi-square test,
+   monte carlo simulation}
  }
 }
 \description{
-Given names of two variable \code{x1} and \code{x2} in a data frame \code{df}
-calculate the P value for the Chi-Square test between them. Use \code{tryCatch}
+Given names of two variables \code{x1} and \code{x2} in a data frame \code{df}
+calculate the P value for the Chi-square test between them. Use \code{tryCatch}
 to collect warnings and errors. Monte-Carlo simulation is performed by default
 for more accurate P values.
 }
