@@ -20,7 +20,7 @@
 #' @return
 #'  \describe{
 #'    \item{"plot"}{"ggplot object with the tile plot where two colors are used to
-#'    highlight significant relationships (alpha \leq to 0.05)"}
+#'    highlight significant relationships (alpha \leq 0.05)"}
 #'    \item{"table"}{"a data frame with all pairwise tests: variable 1 name,
 #'    variable 2 name, P value, test statistic, test name"}
 #'  }

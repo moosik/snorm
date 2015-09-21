@@ -1,16 +1,19 @@
 #' @title Association of eigen vectors with variables
 #'
 #' @description This function calculates P values for association of any number
-#'  of eigen vectors with metadata variable.
-#'  Method: anova(lm(eigengene ~ variable))$"Pr(>F)"[1]
+#'  of eigen vectors with the metadata variables.
+#'  Method: anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]
 #'
 #'
 #' @param pcs a matrix with eigen vectors, i.e V matrix of an SVD
-#' @param tech.vars metadata df
+#' @param tech.vars data frame with the metadata variables
 #'
-#' @return list with two elements. The first element is the matrix with the P values, and
-#'  the second element is a ggplot object for the tile plot of the P values between
-#' the variable, where color reflect the significance (alpha 0.05)
+#' @return
+#'   \describe{
+#'    \item{result}{Matrix with the P values where columns are the eigen vectors and
+#'    the rows are the variables from the metadata}
+#'    \item{plot}{ggplot object for a tile plot reflecting significant associations}
+#'  }
 #'
 #' @examples
 #' u <- matrix(runif(120), ncol = 3)
@@ -22,7 +25,6 @@
 #' print(res$result)
 #' plot(res$plot)
 #'
-#' @seealso code{\link{anovaDF}}
 #' @export
 
 eigenVariable <- function(pcs, tech.vars){
