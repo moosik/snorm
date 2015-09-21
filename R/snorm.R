@@ -1,12 +1,35 @@
-#' foo: A package for computating the notorious bar statistic.
-#' #'
-#' #' The foo package provides three categories of important functions:
-#' #' foo, bar and baz.
-#' #'
-#' #' @section Foo functions:
-#' #' The foo functions ...
-#' #'
-#' #' @docType package
-#' #' @name foo
-#' NULL
-#' #> NULL
+#' snorm: Collection of function to simplify data exploration prior to variable adjustment.
+#'
+#' The foo package provides three categories of important functions:
+#' functions related to the description of the metadata variables, Singular Value
+#' Decomposition of the matrix and relationship between the eigenvectors and the
+#' variables of the metadata.
+#'
+#' @section Functions related to the description of the metadata variables:
+#' We provide \code{summaryTable} function to give a description for every variable
+#' (column) in the metadata (summary statistics such as mean, median, maximum, mean
+#' and the number of missing cases are provided). Function \code{varaiblesRelation}
+#' provides a table with correlation P values and statistic estimates for each pair
+#' of the variables in the metadata. This helps to understand whether any technical
+#' variables are related to the variables of interest.
+#'
+#' @section Functions related to the SVD of a matrix:
+#' Function \code{fs} performs Singular Value decomposition on a matrix and transforms
+#' the matrix D to reflect percent variance explained. Function \code{plotVariance}
+#' plots the percent variance explained of the D matrix obtained by calculating
+#' the SVD. Function \code{matrixOutliers} creates a scatterplot of the matrix
+#' columns corresponding to the most extreme values of the first eigen vector of the SVD.
+#'
+#' @section Eigen vectors and their relationship with the metadata variables:
+#' Function \code{eigenVariable} calculates an overall ANOVA P value for the
+#' relationship between the first five eigen vectors and the variables in the
+#' metadata. Function \code{eigenVariablePlot} plots a variable from the metadata
+#' against an eigenvector. Function \code{pcScatter} creates a scatterplot of the first
+#' two eigen vectors and colors the point by a variable from the metadata.
+#'
+#' @docType package
+#' @name snorm
+
+NULL
+
+#> NULL
