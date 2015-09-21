@@ -13,10 +13,10 @@ fs(x)
 a list with U, V and D matrices. Column names of V get names: EigenN,
  where N is the number of the eigenvector. Row names of V get the column names
  of the input data matrix. Column names of U get the column names of the input
- data matrix.
+ data matrix \code{x}.
 }
 \description{
-Use fast.svd from corpcor library to calculate an SVD
+Use \code{\link[corpcor]{fast.svd}} from \code{corpcor} library to calculate an SVD
  of a matrix. The data before the calculation is centered. The D
  matrix is transformed to show percent variance explained.
 }
@@ -25,5 +25,8 @@ The function is a slight modification of the function created by Brig Mecham.
 }
 \references{
 \href{https://github.com/Sage-Bionetworks/mGenomics/blob/master/R/fs.R}{mGenomics}
+}
+\seealso{
+\code{\link[corpcor]{fast.svd}}
 }
 

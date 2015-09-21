@@ -1,6 +1,6 @@
 #' Calculate an SVD on a matrix
 #'
-#' Use fast.svd from corpcor library to calculate an SVD
+#' Use \code{\link[corpcor]{fast.svd}} from \code{corpcor} library to calculate an SVD
 #'  of a matrix. The data before the calculation is centered. The D
 #'  matrix is transformed to show percent variance explained.
 #'
@@ -15,9 +15,11 @@
 #'  @return a list with U, V and D matrices. Column names of V get names: EigenN,
 #'  where N is the number of the eigenvector. Row names of V get the column names
 #'  of the input data matrix. Column names of U get the column names of the input
-#'  data matrix.
+#'  data matrix \code{x}.
 #'
 #'  @export
+#'
+#'  @seealso \code{\link[corpcor]{fast.svd}}
 
 
 fs <- function(x)
