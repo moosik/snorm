@@ -1,0 +1,9 @@
+1. Fix variablesRelation.R function: more intelligent table result: no repeated
+test pairs, fewer significant digits. May want to separate the results (will be easier
+to sort when the results are saved as an Excel table.
+
+
+2. Write tests
+
+
+3. Do additional code clean up with formatR and lintr
