@@ -4,9 +4,9 @@ Version: 0.0.0.9000
 Authors@R: person("Vitalina", "Komashko", email = "vitalina@gmail.com", role = c("aut", "cre"))
 Description: The package was created to gather together functions used frequently to explore
 	     structure in genomic data and aid data normalization. Functions address realtionship
-	     between the variables in the metadata describing the data (subject characteristics), 
-	     their influence on the data as explored by correlating with the data eigenvectors. 
+	     between the variables in the metadata describing the data (subject characteristics),
+	     their influence on the data as explored by correlating with the data eigenvectors.
 Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
-Imports: ggplot2, reshape2
+Imports: ggplot2, reshape2, corpcor
