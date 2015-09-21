@@ -1,3 +1,26 @@
+#' Calculate Pearson correlation test between two variable, catch errors and warning
+#'
+#' Given names of a numeric variable \code{x1} and \code{x2} in a data frame \code{df}
+#' calculate the P value for the Pearson's product moment correlation coefficient.
+#' Use \code{tryCatch} to collect warnings and errors.
+#'
+#' @param x1 a character string indicating the name of a numeric variable in a data frame \code{df}
+#' @param x2 a character string indicating the name of another numeric variable in a data frame \code{df}
+#' @param df data frame
+#' @param cor.tes.method a character string indicating which correlation coefficient
+#' is to be used for the test. Default is "pearson"
+#'
+#' @return
+#'  \describe{
+#'    \item{"p.value"}{"P value or the error/warning message"}
+#'    \item{"statistic"}{"Test statistic or the error/warning message"}
+#'    \item{"test.type"}{"String indicating the test type: pearson correlation"}
+#'  }
+#'
+#' @seealso \code{\link[stats]{cor.test}}
+
+
+
 carefulPearson <- function(x1, x2, df, cor.test.method = "pearson"){
   if(identical(x1, x2)){
     return(list(p.value = "variable 1 = variable 2",
