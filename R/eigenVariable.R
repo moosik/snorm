@@ -2,10 +2,10 @@
 #'
 #' @description This function calculates P values for association of any number
 #'  of eigen vectors with the metadata variables.
-#'  Method: anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]
+#'  Method: \code{anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]}
 #'
 #'
-#' @param pcs a matrix with eigen vectors, i.e V matrix of an SVD
+#' @param pcs a matrix with eigen vectors, i.e. V matrix of an SVD
 #' @param tech.vars data frame with the metadata variables
 #'
 #' @return
@@ -25,7 +25,11 @@
 #' print(res$result)
 #' plot(res$plot)
 #'
+#' @seealso \code{\link[stats]{anova}}
+#'
 #' @export
+#'
+#'
 
 eigenVariable <- function(pcs, tech.vars){
   result <- as.data.frame(apply(pcs, 2, function(x) anovaDF(x, tech.vars)))

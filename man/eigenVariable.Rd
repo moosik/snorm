@@ -7,7 +7,7 @@
 eigenVariable(pcs, tech.vars)
 }
 \arguments{
-\item{pcs}{a matrix with eigen vectors, i.e V matrix of an SVD}
+\item{pcs}{a matrix with eigen vectors, i.e. V matrix of an SVD}
 
 \item{tech.vars}{data frame with the metadata variables}
 }
@@ -21,7 +21,7 @@ eigenVariable(pcs, tech.vars)
 \description{
 This function calculates P values for association of any number
  of eigen vectors with the metadata variables.
- Method: anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]
+ Method: \code{anova(lm(eigen vector ~ variable))$"Pr(>F)"[1]}
 }
 \examples{
 u <- matrix(runif(120), ncol = 3)
@@ -32,5 +32,8 @@ var.test <- data.frame(batch = sample(c("a", "b"), 40, replace = TRUE),
 res <- eigenVariable(u, var.test)
 print(res$result)
 plot(res$plot)
+}
+\seealso{
+\code{\link[stats]{anova}}
 }
 
