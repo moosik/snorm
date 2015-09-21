@@ -16,7 +16,7 @@
 #'
 #' @seealso \code{\link{variablesRelation}}, \code{\link{carefulChisq}}, \code{\link{carefulKruskal}},
 #' \code{\link{carefulPearson}}
-#'
+
 
 
 testDecisionTree <- function(ind1, ind2, df, chisq.p.val.sim = TRUE, cor.method  = "pearson"){
