@@ -13,8 +13,8 @@ anovaDF(vec, df)
 }
 \value{
 a vector of P values for each model fitted where
-  input vector is the response variable and dependent
-  variable is on the of the columns in the provided
+  an independent variable is an eigen vector and the
+  dependent variable is one of the variables from the metdata
   data frame
 }
 \description{
@@ -23,8 +23,5 @@ model where y is a numeric vector (an eigen vector
 calculated in an SVD) and x is a dependent variable from
 the metadata. The function loops over the columns of the
 metadata
-}
-\seealso{
-\code{\link{eigenVariable}}
 }
 

@@ -10,11 +10,11 @@
 #'  @param df data frame with the metadata
 #'
 #'  @return a vector of P values for each model fitted where
-#'   input vector is the response variable and dependent
-#'   variable is on the of the columns in the provided
+#'   an independent variable is an eigen vector and the
+#'   dependent variable is one of the variables from the metdata
 #'   data frame
 #'
-#'  @seealso \code{\link{eigenVariable}}
+
 
 
 

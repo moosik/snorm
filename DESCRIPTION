@@ -8,5 +8,5 @@ Description: The package was created to gather together functions used frequentl
 	     their influence on the data as explored by correlating with the data eigenvectors.
 Depends: R (>= 3.2.0)
 License: GPL-3
-LazyData: true
+LazyData: TRUE
 Imports: ggplot2, reshape2, corpcor
