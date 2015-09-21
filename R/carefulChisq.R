@@ -5,6 +5,11 @@
 #' to collect warnings and errors. Monte-Carlo simulation is performed by default
 #' for more accurate P values.
 #'
+#' @param x1 name of one factor variable in a data frame \code{df}
+#' @param x2 name of another factor variable in a data frame \code{df}
+#' @param df data frame
+#' @param sim.p.value if it TRUE (default) p value is computed for a Monte carlo test
+#'
 #' @return
 #'  \describe{
 #'    \item{"p.value"}{"P value or the error/warning message"}
