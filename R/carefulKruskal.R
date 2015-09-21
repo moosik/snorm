@@ -1,7 +1,8 @@
 #' Calculate Kruskal-Wallis test between two variables, catch errors and warnings
 #'
-#' Given names of numeric variables \code{x1} and \code{x2} in a data frame \code{df}
-#' calculate the P value for the Kruskal-Wallis Rank Sum Test. Use \code{tryCatch}
+#' Given names of a numeric \code{x1} and a factor \code{x2} variables in a data
+#' frame \code{df} calculate the P value for the Kruskal-Wallis Rank Sum Test.
+#' Use \code{tryCatch}
 #' to collect warnings and errors.
 #'
 #' @param num.vec.ind name of a numeric variable in a data frame \code{df}
