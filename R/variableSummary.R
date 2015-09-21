@@ -12,6 +12,8 @@
 #'
 #' @param data.var a vector of integer, numeric, character of factor class
 #'
+#' @seealso summaryTable
+#'
 #' @return a named vector with seven elements: type of the variable, number of
 #' categories, minimum, mean, median, maximum, number of missing values
 
