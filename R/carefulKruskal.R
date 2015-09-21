@@ -1,7 +1,7 @@
 #' Calculate Kruskal-Wallis test between two variable, catch errors and warning
 #'
 #' Given names of a numeric variable \code{x1} and \code{x2} in a data frame \code{df}
-#' calculate the P value for the Chi-Square test between them. Use \code{tryCatch}
+#' calculate the P value for the Kruskal-Wallis Rank Sum Test. Use \code{tryCatch}
 #' to collect warnings and errors. Monte-Carlo simulation is performed by default
 #' for more accurate P values.
 #'
