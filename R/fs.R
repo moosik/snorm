@@ -6,7 +6,7 @@
 #'
 #'  The function is a slight modification of the function created by Brig Mecham.
 #'
-#'  @reference \url{https://github.com/Sage-Bionetworks/mGenomics/blob/master/R/fs.R}
+#'  @references \href{https://github.com/Sage-Bionetworks/mGenomics/blob/master/R/fs.R}{mGenomics}
 #'
 #'  @import corpcor
 #'
