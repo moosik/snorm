@@ -2,7 +2,7 @@
 % Please edit documentation in R/carefulPearson.R
 \name{carefulPearson}
 \alias{carefulPearson}
-\title{Calculate Pearson correlation test between two variable, catch errors and warning}
+\title{Pearson correlation test between two numeric variables, catch errors and warnings}
 \usage{
 carefulPearson(x1, x2, df, cor.test.method = "pearson")
 }
@@ -18,13 +18,13 @@ is to be used for the test. Default is "pearson"}
 }
 \value{
 \describe{
-   \item{"p.value"}{"P value or the error/warning message"}
-   \item{"statistic"}{"Test statistic or the error/warning message"}
-   \item{"test.type"}{"String indicating the test type: pearson correlation"}
+   \item{p.value}{P value or the error/warning message}
+   \item{statistic}{Test statistic or the error/warning message}
+   \item{test.type}{String indicating the test type: pearson correlation}
  }
 }
 \description{
-Given names of a numeric variable \code{x1} and \code{x2} in a data frame \code{df}
+Given names of two numeric variables \code{x1} and \code{x2} in a data frame \code{df}
 calculate the P value for the Pearson's product moment correlation coefficient.
 Use \code{tryCatch} to collect warnings and errors.
 }
