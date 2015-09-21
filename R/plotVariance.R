@@ -16,11 +16,11 @@
 
 plotVariance <- function(u, plot.title = NULL){
   temp <- data.frame(variance = u$d, index = 1:ncol(u$v))
-  p <- ggplot(temp, aes(index, variance)) +
-    geom_point(shape = 20) +
-    scale_y_continuous(limits = c(0,0.1), breaks = seq(0,0.1,0.01))
+  p <- ggplot2::ggplot(temp, aes(index, variance)) +
+    ggplot2::geom_point(shape = 20) +
+    ggplot2::scale_y_continuous(limits = c(0,0.1), breaks = seq(0,0.1,0.01))
   if(!is.null(plot.title)){
-    p <- p + ggtitle(plot.title)
+    p <- p + ggplot2::ggtitle(plot.title)
   }
   return(p)
 }

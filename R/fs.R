@@ -26,7 +26,7 @@ fs <- function(x)
       stop("X must be a matrix")
     }
     else{
-      u <- fast.svd(t(scale(t(x), scale = FALSE)), tol = 0)
+      u <- corpcor::fast.svd(t(scale(t(x), scale = FALSE)), tol = 0)
       # Transform D to percent variance
       u$d <- u$d^2/sum(u$d^2)
       # Add names to the U and the V matrices
