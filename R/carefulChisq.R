@@ -5,7 +5,7 @@
 #' to collect warnings and errors. Monte-Carlo simulation is performed by default
 #' for more accurate P values.
 #'
-#' #' @return
+#' @return
 #'  \describe{
 #'    \item{"p.value"}{"P value or the error/warning message"}
 #'    \item{"statistic"}{"Test statistic or the error/warning message"}
