@@ -25,6 +25,7 @@ This function calculates P values for association of any number
 }
 \examples{
 u <- matrix(runif(120), ncol = 3)
+library(ggplot2)
 var.test <- data.frame(batch = sample(c("a", "b"), 40, replace = TRUE),
                        age = sample(50:85, size = 40, replace = TRUE),
                        amp.plate = sample(c("A1", "B1", "C1", "D1", "E1"), 40, replace = TRUE),
