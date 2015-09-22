@@ -1,20 +1,28 @@
-#' Plot a scatter plot between two eigenvectors colored by a variable
+#' Create a scatter plot between two eigen vectors colored by a variable
 #'
 #'
-#' This function combines eigenvectors with the
-#' metadata and creates a scatter plot between 2 eigenvectors and colors
-#' them by the third variable present in the metadata. Matching of the
-#' metadata and the PCs is also executed
+#' This function combines eigen vectors with the
+#' metadata, creates a scatter plot (ggplot2 graphics) between two eigenvectors and colors
+#' the points by a variable present in the metadata. The metadata and the
+#' matrix of the eigen vectors are matched by row names.
 #'
-#' @param eigens a matrix with eigenvectors
-#' @param metadata a data frame with the variable, row names and column names
-#' must be present
-#' @param pc.to.plot a vector with two elements indicating for which two eigenvector
-#' the plot should be created
-#' @param variable by which the points of the scatter plot should be colored
+#' @param eigens a matrix with the eigen vectors
+#' @param metadata a data frame with the variable of interest (points color), must have row and column names
+#' @param pc.to.plot a numeric vector with two elements indicating which two
+#' eigen vectors should be used for a scatter plot
+#' @param variable a string indicating a name of the variable in
+#' the metadata by which the points of the scatter plot should be colored
+#' @param title string for the plot title. Default is NULL - no plot title
 #'
-#' @return plot and the merged pc/metadata data frame
-#' @seealso fs
+#' @return
+#'   \describe{
+#'    \item{plot}{ggplot2 plot object}
+#'    \item{eigen.meta}{data frame of the metadata merged with the matrix of the eigen vectors}
+#'  }
+#'
+#' @seealso \code{\link{fs}}
+#'
+#' @export
 
 
 pcScatter <- function(eigens, metadata, pc.to.plot, variable, title = NULL){
