@@ -4,12 +4,11 @@
 \alias{plotVariance}
 \title{Plot percent variance explained}
 \usage{
-plotVariance(u, plot.title = NULL)
+plotVariance(d, plot.title = NULL)
 }
 \arguments{
-\item{u}{list with the SVD components: u, v, d matrices.
-It assumes that d is already transformed to reflect the percent
-variance. Use fs function to generate the SVD}
+\item{d}{a vector containing the values for the variance explained by each
+singular vector}
 
 \item{plot.title}{plot title}
 }
@@ -17,9 +16,9 @@ variance. Use fs function to generate the SVD}
 ggplot object
 }
 \description{
-Based on ggplot, prettier than the basic graphics
+Based on ggplot2 graphics library, prettier than the basic graphics
 }
 \seealso{
-fs
+\code{\link{fs}}
 }
 

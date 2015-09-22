@@ -1,21 +1,20 @@
 #' Plot percent variance explained
 #'
-#' Based on ggplot, prettier than the basic graphics
+#' Based on ggplot2 graphics library, prettier than the basic graphics
 #'
-#' @param u list with the SVD components: u, v, d matrices.
-#' It assumes that d is already transformed to reflect the percent
-#' variance. Use fs function to generate the SVD
+#' @param d a vector containing the values for the variance explained by each
+#'    singular vector
 #' @param plot.title plot title
 #'
 #' @return ggplot object
 #'
-#' @seealso fs
+#' @seealso \code{\link{fs}}
 #'
 #' @export
 
 
-plotVariance <- function(u, plot.title = NULL){
-  temp <- data.frame(variance = u$d, index = 1:ncol(u$v))
+plotVariance <- function(d, plot.title = NULL){
+  temp <- data.frame(variance = d, index = seq_len(length(d)))
   p <- ggplot2::ggplot(temp, aes(index, variance)) +
     ggplot2::geom_point(shape = 20) +
     ggplot2::scale_y_continuous(limits = c(0,0.1), breaks = seq(0,0.1,0.01))
