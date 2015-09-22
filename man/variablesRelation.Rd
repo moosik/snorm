@@ -2,7 +2,7 @@
 % Please edit documentation in R/variablesRelation.R
 \name{variablesRelation}
 \alias{variablesRelation}
-\title{Calculate all pairwise variable relation}
+\title{Calculate all pairwise variable relations}
 \usage{
 variablesRelation(df, simulate.p.val = TRUE, monte.carlo.reps = 2000)
 }
@@ -16,10 +16,10 @@ test are computed for a Monte-carlo test with monte.carlo.reps}
 }
 \value{
 \describe{
-   \item{"plot"}{"ggplot object with the tile plot where two colors are used to
-   highlight significant relationships (alpha \leq 0.05)"}
-   \item{"table"}{"a data frame with all pairwise tests: variable 1 name,
-   variable 2 name, P value, test statistic, test name"}
+   \item{plot}{ggplot object with the tile plot where two colors are used to
+   highlight significant relationships (alpha is less or equal to 0.05)}
+   \item{table}{a data frame with all pairwise tests: variable 1 name,
+   variable 2 name, P value, test statistic, test name}
  }
 }
 \description{
@@ -34,8 +34,5 @@ the p-value for the Chi-square test is computed for a Monte Carlo test with
 monte.carlo.reps replicates. We suggest removing any columns ID columns from the
 data prior to using this function (definition of an ID column: number of levels
 is the same as the number of rows in the data frame)
-}
-\seealso{
-\code{\link{testDecisionTree}}
 }
 

@@ -1,4 +1,4 @@
-#' Calculate all pairwise variable relation
+#' Calculate all pairwise variable relations
 #'
 #' Given a data frame the function will calculate pairwise correlations
 #' between all columns. This function is usually used to understand if any of the
@@ -19,15 +19,17 @@
 #'
 #' @return
 #'  \describe{
-#'    \item{"plot"}{"ggplot object with the tile plot where two colors are used to
-#'    highlight significant relationships (alpha \leq 0.05)"}
-#'    \item{"table"}{"a data frame with all pairwise tests: variable 1 name,
-#'    variable 2 name, P value, test statistic, test name"}
+#'    \item{plot}{ggplot object with the tile plot where two colors are used to
+#'    highlight significant relationships (alpha is less or equal to 0.05)}
+#'    \item{table}{a data frame with all pairwise tests: variable 1 name,
+#'    variable 2 name, P value, test statistic, test name}
 #'  }
 #'
-#' @export
 #'
-#' @seealso \code{\link{testDecisionTree}}
+#'
+#'
+#'
+#' @export
 
 
 

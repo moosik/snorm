@@ -25,6 +25,8 @@
 #'    \item{test.type}{Type of the test performed: Chi-square, Pearson or Kruskal-Wallis}
 #'  }
 #'
+#'
+#'
 #' @seealso \code{\link{variablesRelation}}, \code{\link{carefulChisq}}, \code{\link{carefulKruskal}},
 #' \code{\link{carefulPearson}}
 

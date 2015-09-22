@@ -1,21 +1,22 @@
 #' Single variable summary for the metadata
 #'
 #'
-#' Function takes a variable and creates a series of summary statistics based
+#' This function takes a variable and creates a series of summary statistics based
 #' on its class. If the vector is numeric or integer, the function provides the minimum,
 #' median, mean, maximum, number of missing values and the type of the variable.
 #' If the class is factor it provides the number of levels, and the statistics for
-#' the number of cases as defined by each level: the minimum, the maximum,
+#' the number of cases as defined by each level: the minimum,
 #' the median, the mean, the maximum and the number of missing cases. If the class
-#' is character then it is converted to factor and the statistics and the same
-#' statistics are given.
+#' is character then it is converted to a factor and the same statistics as for the
+#' factor are given.
 #'
 #' @param data.var a vector of integer, numeric, character of factor class
 #'
-#' @seealso summaryTable
+#' @seealso \code{\link{summaryTable}}
 #'
 #' @return a named vector with seven elements: type of the variable, number of
 #' categories, minimum, mean, median, maximum, number of missing values
+
 
 
 variableSummary <- function(data.var){
