@@ -7,19 +7,33 @@
 testDecisionTree(ind1, ind2, df, chisq.p.val.sim = TRUE,
   cor.method = "pearson")
 }
+\arguments{
+\item{ind1}{a string to indicate the name of the first variable}
+
+\item{ind2}{a string to indicate the name of the second variable}
+
+\item{df}{a data frame with the variables}
+
+\item{cor.method}{string to indicate what method should be used to compute
+correlation between two numeric variables}
+
+\item{chsiq.p.val.sim}{boolean to indicate whether the simulation should
+be performed for the Chi-square test. Default is TRUE}
+}
 \value{
 \describe{
-   \item{"p.value"}{"P value for the test"}
-   \item{"statistic"}{"Test statistic"}
-   \item{"test.type"}{"Type of the test performed: Chi-Square, Pearson or Kruskal-Wallis"}
+   \item{p.value}{P value for the test}
+   \item{statistic}{Test statistic}
+   \item{test.type}{Type of the test performed: Chi-square, Pearson or Kruskal-Wallis}
  }
 }
 \description{
 Given the names of two variable \code{ind1} and \code{ind2} in a data frame
 \code{df}
 decide which test should be performed to calculate the relationship
-between the variables based on their classes. Class pairs and the corresponing
-tests: factor/factor - Chi-square (with or without a Monte-Carlo simulation).
+between these variables. The decision is based on their respective classes.
+Class pairs and the corresponing
+tests: factor/factor - Chi-square (with or without a Monte-Carlo simulation),
 numeric/numeric - Pearson correlation, numeric/factor - Kruskal-Wallis test.
 }
 \seealso{

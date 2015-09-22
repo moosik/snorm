@@ -18,9 +18,10 @@ of the data frame are the column names of the input data frame.
 }
 \description{
 Function takes a data frame and creates a series of summary statistics for each
-column of the data frame based on its class. If a column is numeric or integer,
-the function provides the minimum,
-median, mean, maximum, the number of the missing values and the class.
+column. The type of statistics returned depends on the class of the column.
+If the column is numeric or integer,
+the function provides a minimum,
+median, mean, maximum and a number of missing cases and a class of the variable.
 If the class is a factor it provides the number of levels, and the statistics for
 the number of cases as defined by each level: the minimum,
 the median, the mean, the maximum and the number of missing cases. If the class
