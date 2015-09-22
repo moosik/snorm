@@ -10,15 +10,25 @@ fs(x)
 \item{x}{data matrix}
 }
 \value{
-a list with U, V and D matrices. Column names of V get names: EigenN,
- where N is the number of the eigenvector. Row names of V get the column names
- of the input data matrix. Column names of U get the column names of the input
- data matrix \code{x}.
+\describe{
+   \item{u}{a matrix with the corresponding left singular vectors. Column
+   names of the matrix are the column names of the input data matrix \code{x}.}
+   \item{v}{a matrix with the corresponding right singular vectors. We refer
+   to them as eigen vectors in the documentation for all other functions. The matrix
+   has column names in the following format "EigenN", where N is the number of the
+   corresponding vector. The row names are the same as the column names of the
+   input data matrix \code{x}.}
+   \item{d}{a vector containing the values for the variance explained by each
+   singular vector}
+
+ }
 }
 \description{
 Use \code{\link[corpcor]{fast.svd}} from \code{corpcor} library to calculate an SVD
  of a matrix. The data before the calculation is centered. The D
- matrix is transformed to show percent variance explained.
+ matrix is transformed to show percent variance explained. The missing or
+ infinite numbers should be removed or imputed in the matrix prior to the
+ calculation.
 }
 \details{
 The function is a slight modification of the function created by Brig Mecham.
