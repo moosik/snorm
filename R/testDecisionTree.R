@@ -12,7 +12,7 @@
 #' @param ind1 a string to indicate the name of the first variable
 #' @param ind2 a string to indicate the name of the second variable
 #' @param df a data frame with the variables
-#' @param chsiq.p.val.sim boolean to indicate whether the simulation should
+#' @param chisq.p.val.sim boolean to indicate whether the simulation should
 #' be performed for the Chi-square test. Default is TRUE
 #' @param cor.method string to indicate what method should be used to compute
 #' correlation between two numeric variables

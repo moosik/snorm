@@ -14,11 +14,11 @@ testDecisionTree(ind1, ind2, df, chisq.p.val.sim = TRUE,
 
 \item{df}{a data frame with the variables}
 
+\item{chisq.p.val.sim}{boolean to indicate whether the simulation should
+be performed for the Chi-square test. Default is TRUE}
+
 \item{cor.method}{string to indicate what method should be used to compute
 correlation between two numeric variables}
-
-\item{chsiq.p.val.sim}{boolean to indicate whether the simulation should
-be performed for the Chi-square test. Default is TRUE}
 }
 \value{
 \describe{
