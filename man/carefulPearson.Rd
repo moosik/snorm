@@ -13,7 +13,7 @@ carefulPearson(x1, x2, df, cor.test.method = "pearson")
 
 \item{df}{data frame}
 
-\item{cor.tes.method}{a character string indicating which correlation coefficient
+\item{cor.test.method}{a character string indicating which correlation coefficient
 is to be used for the test. Default is "pearson"}
 }
 \value{

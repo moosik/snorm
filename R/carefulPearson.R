@@ -7,7 +7,7 @@
 #' @param x1 a character string indicating the name of a numeric variable in a data frame \code{df}
 #' @param x2 a character string indicating the name of another numeric variable in a data frame \code{df}
 #' @param df data frame
-#' @param cor.tes.method a character string indicating which correlation coefficient
+#' @param cor.test.method a character string indicating which correlation coefficient
 #' is to be used for the test. Default is "pearson"
 #'
 #' @return
