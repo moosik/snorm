@@ -6,20 +6,25 @@
 \usage{
 summaryTable(df)
 }
+\arguments{
+\item{df}{a data frame for columns of which the summary statistics are to
+be calculated}
+}
 \value{
 a data frame with seven columns: type of the variable, number of
-categories, minimum, mean, median, maximum, number of missing values. Row names
-of the data frame are the column names of the input data frame
+categories (when a factor or a character), minimum, mean, median, maximum,
+number of the missing cases. Row names
+of the data frame are the column names of the input data frame.
 }
 \description{
 Function takes a data frame and creates a series of summary statistics for each
 column of the data frame based on its class. If a column is numeric or integer,
 the function provides the minimum,
 median, mean, maximum, the number of the missing values and the class.
-If the class is factor it provides the number of levels, and the statistics for
-the number of cases as defined by each level: the minimum, the maximum,
+If the class is a factor it provides the number of levels, and the statistics for
+the number of cases as defined by each level: the minimum,
 the median, the mean, the maximum and the number of missing cases. If the class
-is character then it is converted to factor and the statistics and the same
+is a character it is then converted to a factor and the same
 statistics are given.
 }
 
