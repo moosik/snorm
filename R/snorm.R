@@ -32,6 +32,9 @@
 #'
 #' @docType package
 #' @name snorm
+#' @import ggplot2
+#' @import reshape2
+#' @import corpcor
 
 NULL
 
