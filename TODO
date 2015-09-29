@@ -28,3 +28,7 @@ have column names, add an intelligent message
 9. Intelligent message if u$v doesn't have row names
 
 10. Add a function for the row distribution of the data colored by the row variables
+
+11. BIG BUG: fix variablesRelation for the cases when all relations are significant or
+all relations are not significant. The plot is incorrect when only one case is present.
+It labels the tiles incorrectly
