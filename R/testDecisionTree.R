@@ -6,7 +6,7 @@
 #' between these variables. The decision is based on their respective classes.
 #' Class pairs and the corresponing
 #' tests: factor/factor - Chi-square (with or without a Monte-Carlo simulation),
-#' numeric/numeric - Pearson correlation, numeric/factor - Kruskal-Wallis test.
+#' numeric/numeric and numeric/factor - anova F test
 #'
 #'
 #' @param ind1 a string to indicate the name of the first variable
@@ -14,25 +14,22 @@
 #' @param df a data frame with the variables
 #' @param chisq.p.val.sim boolean to indicate whether the simulation should
 #' be performed for the Chi-square test. Default is TRUE
-#' @param cor.method string to indicate what method should be used to compute
-#' correlation between two numeric variables
 #'
 #'
 #' @return
 #'  \describe{
 #'    \item{p.value}{P value for the test}
 #'    \item{statistic}{Test statistic}
-#'    \item{test.type}{Type of the test performed: Chi-square, Pearson or Kruskal-Wallis}
+#'    \item{test.type}{Type of the test performed: anova F test or Chi-square test}
 #'  }
 #'
 #'
 #'
-#' @seealso \code{\link{variablesRelation}}, \code{\link{carefulChisq}}, \code{\link{carefulKruskal}},
-#' \code{\link{carefulPearson}}
+#' @seealso \code{\link{variablesRelation}}, \code{\link{carefulChisq}}, \code{\link{carefulLM}}
 
 
 
-testDecisionTree <- function(ind1, ind2, df, chisq.p.val.sim = TRUE, cor.method  = "pearson"){
+testDecisionTree <- function(ind1, ind2, df, chisq.p.val.sim = TRUE){
   if (identical(class(df[,ind1]), "numeric") & identical(class(df[,ind2]), "numeric")){
     # if both columns are numeric do the correlation test
     test.res <- carefulPearson(ind1, ind2, df, cor.test.method = cor.method)

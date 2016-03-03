@@ -5,7 +5,7 @@
 #' technical variables in the data are correlated with the biological variables
 #' (to avoid loosing the signal during data normalization).
 #' The following tests are used: between a factor and a numeric
-#' variable - Kruskal Wallis test, between two numeric variables - Pearson correlation,
+#' variable or between two numeric variables - anova F test,
 #' between two factor variables - Chi-square test. If simulate.p.val = TRUE then
 #' the p-value for the Chi-square test is computed for a Monte Carlo test with
 #' monte.carlo.reps replicates. We suggest removing any columns ID columns from the
@@ -22,7 +22,7 @@
 #'    \item{plot}{ggplot object with the tile plot where two colors are used to
 #'    highlight significant relationships (alpha is less or equal to 0.05)}
 #'    \item{table}{a data frame with all pairwise tests: variable 1 name,
-#'    variable 2 name, P value, test statistic, test name}
+#'    variable 2 name, P value, test statistic, test name, adjusted P value using FDR}
 #'  }
 #'
 #'
@@ -35,18 +35,20 @@
 
 variablesRelation <- function(df, simulate.p.val = TRUE, monte.carlo.reps = 2000){
   # Remove all rows with missing values
-  df <- na.omit(df)
-  df <- droplevels(df)
+  # df <- na.omit(df)
+  # df <- droplevels(df)
   # Make all pairs of columns to be compared:
   var.grid <- expand.grid(seq_len(ncol(df)), seq_len(ncol(df)))
-  res <- vector("list", length(nrow(var.grid)))
+  res <- vector("list", nrow(var.grid))
   for(i in seq_len(nrow(var.grid))){
-    res[[i]] <- testDecisionTree(var.grid[i,1], var.grid[i, 2], df)
+    res[[i]] <- testDecisionTree(var.grid[i, 1], var.grid[i, 2], df)
   }
   # Prepare the plot
   res.pvalues <- suppressWarnings(as.numeric(unlist(sapply(res, "[", 1))))
-  res.pval.df <- data.frame(var1 = colnames(df)[var.grid[,1]],
-                            var2 = colnames(df)[var.grid[,2]],
+  # Adjust using FDR
+  res.pvalues <- p.adjust(res.pvalues, method = "fdr")
+  res.pval.df <- data.frame(var1 = colnames(df)[var.grid[, 1]],
+                            var2 = colnames(df)[var.grid[, 2]],
                             pvalue = cut(res.pvalues, breaks = c(-0.00000000001,0.05,1)))
   p <- ggplot(res.pval.df, aes(var1, var2, fill = pvalue)) +
     geom_tile(color = "white") +
