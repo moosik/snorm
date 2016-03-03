@@ -28,13 +28,15 @@
 #' metadata. Function \code{\link{eigenVariablePlot}} plots a variable from the
 #' metadata against an eigen vector. Function \code{\link{pcScatter}} creates a
 #' scatter plot of the first two eigen vectors and colors the point by a variable
-#' from the metadata.
+#' from the metadata. Function \code{\link{geneOntology}} creates a basic unit
+#' to obtain MF, BP and CC categories from GO for a gene list.
 #'
 #' @docType package
 #' @name snorm
 #' @import ggplot2
 #' @import reshape2
 #' @import corpcor
+#' @import GOstats
 
 NULL
 
