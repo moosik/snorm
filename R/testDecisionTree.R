@@ -29,22 +29,22 @@
 
 
 
-testDecisionTree <- function(ind1, ind2, df, chisq.p.val.sim = TRUE){
+testDecisionTree <- function(ind1, ind2, df){
   if (identical(class(df[,ind1]), "numeric") & identical(class(df[,ind2]), "numeric")){
-    # if both columns are numeric do the correlation test
-    test.res <- carefulPearson(ind1, ind2, df, cor.test.method = cor.method)
+    # if both columns are numeric do anova F test
+    test.res <- carefulLM(ind1, ind2, df)
   }
   else if (identical(class(df[,ind1]), "factor") & identical(class(df[,ind2]), "factor")){
     # if both are factors then do a chi-square test
-    test.res <- carefulChisq(ind1, ind2, df, sim.p.value = chisq.p.val.sim)
+    test.res <- carefulChisq(ind1, ind2, df)
   }
   else if (identical(class(df[,ind1]), "factor") & identical(class(df[,ind2]), "numeric")){
-    # first is a factor, second is numeric
-    test.res <- carefulKruskal(ind2, ind1, df)
+    # first is a factor, second is numeric do anova F test
+    test.res <- carefulLM(ind2, ind1, df)
   }
   else if (identical(class(df[,ind1]), "numeric") & identical(class(df[,ind2]), "factor")){
-    # first is numeric, second is a factor
-    test.res <- carefulKruskal(ind1, ind2, df)
+    # first is numeric, second is a factor do anova F test
+    test.res <- carefulLM(ind1, ind2, df)
   }
   else{
     test.res <- list("p.value" = "types of variables are not recognized",

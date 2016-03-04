@@ -19,17 +19,17 @@
 #' @seealso \code{\link[stats]{anova}},
 
 carefulLM <- function(resp.vec.ind, exp.vec.ind, df){
-  test.res <- tryCatch(anova(lm(df[,resp.vec.ind] ~ df[, exp.vec.ind], na.action = na.omit))$"Pr(>F)"[1],
+  test.res <- tryCatch(anova(lm(df[,resp.vec.ind] ~ df[, exp.vec.ind], na.action = na.omit)),
                        error = function(e) return(e),
                        warning = function(w) return(w))
   if(inherits(test.res, "simpleError") | inherits(test.res, "simpleWarning")){
-    return(list(p.value = test.res$message,
-                statistic = test.res$message,
-                test.type = "anova F test"))
+    return(list(p.value = NA,
+                statistic = NA,
+                test.type = test.res$message))
   }
   else{
-    return(list(p.value = test.res$p.value,
-                statistic = test.res$statistic,
+    return(list(p.value = test.res$"Pr(>F)"[1],
+                statistic = test.res$"F value"[1],
                 test.type = "anova F test"))
   }
 }

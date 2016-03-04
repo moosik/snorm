@@ -8,12 +8,6 @@ to sort when the results are saved as an Excel table.
 
 3. Do additional code clean up with formatR and lintr
 
-4. Add choice of the correlation method to the carefulPearson.R and
-variablesRelation.R. Rename carefulPearson.R to have a more general name
-
-5. Fix carefulChisq.R to have an option for a Monte-Carlo simulation (right
-now it is being done by default). Also, it doesn't have the parameter for the
-number of replicates, it does the default one provided by chisq.test
 
 6.Write a vignette for the package demonstrating the use of the functions. Use
 either a simulated dataset or a small real data.
@@ -29,6 +23,3 @@ have column names, add an intelligent message
 
 10. Add a function for the row distribution of the data colored by the row variables
 
-11. BIG BUG: fix variablesRelation for the cases when all relations are significant or
-all relations are not significant. The plot is incorrect when only one case is present.
-It labels the tiles incorrectly

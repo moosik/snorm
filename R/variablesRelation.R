@@ -33,7 +33,13 @@
 
 
 
-variablesRelation <- function(df, simulate.p.val = TRUE, monte.carlo.reps = 2000){
+variablesRelation <- function(df){
+  if(identical(class(df), "matrix")){
+    df <- as.data.frame(df)
+  }
+  if(identical(colnames(df), NULL)){
+    colnames(df) <- paste0("col", 1:ncol(df))
+  }
   # Remove all rows with missing values
   # df <- na.omit(df)
   # df <- droplevels(df)
@@ -46,23 +52,22 @@ variablesRelation <- function(df, simulate.p.val = TRUE, monte.carlo.reps = 2000
   # Prepare the plot
   res.pvalues <- suppressWarnings(as.numeric(unlist(sapply(res, "[", 1))))
   # Adjust using FDR
-  res.pvalues <- p.adjust(res.pvalues, method = "fdr")
-  res.pval.df <- data.frame(var1 = colnames(df)[var.grid[, 1]],
-                            var2 = colnames(df)[var.grid[, 2]],
-                            pvalue = cut(res.pvalues, breaks = c(-0.00000000001,0.05,1)))
-  p <- ggplot(res.pval.df, aes(var1, var2, fill = pvalue)) +
-    geom_tile(color = "white") +
-    scale_fill_brewer(palette = "Set1", name = "P value\nsignificance",
-                      na.value = "grey70", labels = c("[0, 0.05]", "(0.05,1]")) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-    xlab("") +
-    ylab("") +
-    ggtitle("Correlation between the variables")
+  res.pvalues.fdr <- p.adjust(res.pvalues, method = "fdr")
   # Prepare a table with the actual P values, errors and warnings if any tests performed
   res.table <- data.frame(var1 = colnames(df)[var.grid[,1]],
                           var2 = colnames(df)[var.grid[,2]],
-                          test.pvalue = unlist(sapply(res, "[", 1)),
+                          pvalue = res.pvalues,
+                          pvalue.fdr = res.pvalues.fdr,
                           test.estimate = unlist(sapply(res, "[", 2)),
                           test.type = unlist(sapply(res, "[", 3)))
+  p <- ggplot(res.table, aes(var1, var2, fill = cut(pvalue.fdr,
+                                                    breaks = c(0,0.05,1),
+                                                    include.lowest = TRUE))) +
+    geom_tile(color = "white") +
+    scale_fill_brewer(palette = "Set1", name = "P value\nsignificance", na.value = "grey70") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+    xlab("") +
+    ylab("") +
+    ggtitle("P values for the associations between variables, FDR adjusted")
   return(list(plot = p, table = res.table))
 }
