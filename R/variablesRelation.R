@@ -13,36 +13,31 @@
 #' is the same as the number of rows in the data frame)
 #'
 #' @param df data frame for which relationship between columns needs to be calculated
-#' @param simulate.p.val if it is TRUE (default) then the P values for the Chi-square
-#' test are computed for a Monte-carlo test with monte.carlo.reps
-#' @param monte.carlo.reps number of replicates for the Monte-Carlo test
+#' @param multiple.testing method to use for multiple testing adjustment, currently
+#' supported methods are Benjamini & Hochberg's FDR ("fdr"), Benjamini & Yekutieli ("BY")
+#' or Storey's q-value ("q")
 #'
 #' @return
 #'  \describe{
 #'    \item{plot}{ggplot object with the tile plot where two colors are used to
 #'    highlight significant relationships (alpha is less or equal to 0.05)}
 #'    \item{table}{a data frame with all pairwise tests: variable 1 name,
-#'    variable 2 name, P value, test statistic, test name, adjusted P value using FDR}
+#'    variable 2 name, P value, test statistic, test name, adjusted P value using
+#'    one of methods}
 #'  }
-#'
-#'
-#'
-#'
 #'
 #' @export
 
 
 
-variablesRelation <- function(df){
+variablesRelation <- function(df, multiple.testing = c("fdr", "BY", "q")){
+  method <- match.arg(multiple.testing)
   if(identical(class(df), "matrix")){
     df <- as.data.frame(df)
   }
   if(identical(colnames(df), NULL)){
     colnames(df) <- paste0("col", 1:ncol(df))
   }
-  # Remove all rows with missing values
-  # df <- na.omit(df)
-  # df <- droplevels(df)
   # Make all pairs of columns to be compared:
   var.grid <- expand.grid(seq_len(ncol(df)), seq_len(ncol(df)))
   res <- vector("list", nrow(var.grid))
@@ -52,15 +47,26 @@ variablesRelation <- function(df){
   # Prepare the plot
   res.pvalues <- suppressWarnings(as.numeric(unlist(sapply(res, "[", 1))))
   # Adjust using FDR
-  res.pvalues.fdr <- p.adjust(res.pvalues, method = "fdr")
+  res.pvalues.adj <- switch(method,
+    fdr = {
+      p.adjust(res.pvalues, method = "fdr")
+      },
+    BY = {
+      p.adjust(res.pvalues, method = "BY")
+      },
+    q = {
+      qvalue(res.pvalues)$qvalues
+      }
+  )
   # Prepare a table with the actual P values, errors and warnings if any tests performed
+
   res.table <- data.frame(var1 = colnames(df)[var.grid[,1]],
                           var2 = colnames(df)[var.grid[,2]],
                           pvalue = res.pvalues,
-                          pvalue.fdr = res.pvalues.fdr,
+                          pvalue.adj = res.pvalues.adj,
                           test.estimate = unlist(sapply(res, "[", 2)),
                           test.type = unlist(sapply(res, "[", 3)))
-  p <- ggplot(res.table, aes(var1, var2, fill = cut(pvalue.fdr,
+  p <- ggplot(res.table, aes(var1, var2, fill = cut(pvalue.adj,
                                                     breaks = c(0,0.05,1),
                                                     include.lowest = TRUE))) +
     geom_tile(color = "white") +
@@ -68,6 +74,6 @@ variablesRelation <- function(df){
     theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
     xlab("") +
     ylab("") +
-    ggtitle("P values for the associations between variables, FDR adjusted")
+    ggtitle("P values for the associations between variables\nadjusted for multiple testing")
   return(list(plot = p, table = res.table))
 }
